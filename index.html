@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KNOW YOUR MP | National Political Archive (1947 - Present)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f3eff9;
+            --primary-text: #2b1c40;
+            --secondary-text: #5c4b75;
+            --accent-purple: #8b68c9;
+            --accent-light: #b39cd9;
+            --glass-bg: rgba(255, 255, 255, 0.55);
+            --glass-border: rgba(255, 255, 255, 0.8);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 80% -10%, rgba(184, 156, 230, 0.6) 0%, transparent 40%),
+                radial-gradient(circle at 10% 80%, rgba(200, 180, 240, 0.5) 0%, transparent 40%);
+            background-attachment: fixed;
+            color: var(--primary-text);
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        .glass-panel {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 10px 40px rgba(100, 80, 140, 0.08);
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 6%;
+            margin-bottom: 20px;
+        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--primary-text); text-decoration: none; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; }
+        .logo i { color: var(--accent-purple); }
+        .nav-links { display: flex; gap: 35px; list-style: none; margin: 0; padding: 0; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+        .nav-links a { color: var(--secondary-text); text-decoration: none; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-purple); }
+        .cta-btn { background: rgba(255,255,255,0.7); border: 1px solid var(--glass-border); color: var(--accent-purple); padding: 12px 25px; border-radius: 50px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: 0.3s; backdrop-filter: blur(5px); text-decoration: none; }
+        .cta-btn:hover { background: var(--accent-purple); color: #fff; box-shadow: 0 0 20px rgba(139,104,201,0.3); }
+
+        .container { max-width: 1350px; margin: 0 auto; padding: 0 20px; }
+
+        /* Hero Section */
+        .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; margin-bottom: 50px; padding: 50px; }
+        .hero-tag { display: inline-block; color: var(--secondary-text); font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; border-left: 2px solid var(--accent-purple); padding-left: 10px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900; line-height: 1.1; margin: 0 0 20px; color: var(--primary-text); text-transform: uppercase; }
+        .hero h1 span { color: var(--accent-purple); font-style: italic; }
+        .hero p { color: var(--secondary-text); font-size: 15px; line-height: 1.7; margin-bottom: 30px; max-width: 90%; }
+        .hero-img { width: 100%; height: 420px; object-fit: cover; border-radius: 24px; box-shadow: 0 20px 40px rgba(139, 104, 201, 0.2); }
+
+        /* Search Section */
+        .search-container { position: relative; margin-bottom: 40px; }
+        .search-box { width: 100%; padding: 25px 35px; font-size: 16px; color: var(--primary-text); background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 50px; outline: none; backdrop-filter: blur(20px); font-family: 'Poppins', sans-serif; transition: 0.3s; box-shadow: 0 10px 30px rgba(100, 80, 140, 0.05); box-sizing: border-box; }
+        .search-box::placeholder { color: var(--secondary-text); opacity: 0.7; }
+        .search-box:focus { border-color: var(--accent-purple); box-shadow: 0 10px 30px rgba(139, 104, 201, 0.2); }
+
+        /* Section Titles */
+        .section-title { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--secondary-text); margin-bottom: 25px; display: flex; align-items: center; gap: 10px; }
+        .section-title::before { content: ''; width: 6px; height: 6px; background: var(--accent-purple); border-radius: 50%; }
+
+        /* MP Grid */
+        .mp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .mp-card { padding: 20px; text-align: left; display: flex; flex-direction: column; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; }
+        .mp-card:hover { transform: translateY(-8px); background: rgba(255,255,255,0.85); box-shadow: 0 15px 35px rgba(139,104,201,0.15); }
+        .card-img-wrapper { height: 220px; border-radius: 20px; overflow: hidden; margin-bottom: 20px; background: #e0d8ef; }
+        .mp-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .mp-card:hover img { transform: scale(1.05); }
+        .mp-party-tag { display: inline-block; background: rgba(139, 104, 201, 0.15); color: var(--accent-purple); padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: 600; text-transform: uppercase; margin-bottom: 10px; }
+        .mp-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 800; margin: 0 0 5px; color: var(--primary-text); }
+        .mp-desc { font-size: 12px; color: var(--secondary-text); margin-bottom: 15px; }
+        .explore-link { margin-top: auto; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-purple); text-decoration: none; display: flex; align-items: center; gap: 5px; }
+
+        /* Bento Grid */
+        .bento-grid { display: grid; grid-template-columns: 1fr 1.5fr 1fr; gap: 30px; margin-bottom: 60px; }
+        .bento-box { padding: 35px; }
+        .feature-list { list-style: none; padding: 0; margin: 0; }
+        .feature-list li { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; font-size: 13px; color: var(--secondary-text); }
+        .feature-list i { color: var(--accent-purple); background: rgba(139,104,201,0.1); padding: 8px; border-radius: 50%; }
+
+        .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .metric-item { text-align: center; padding: 20px; background: rgba(255,255,255,0.6); border-radius: 20px; }
+        .metric-number { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--accent-purple); margin-bottom: 5px; }
+        .metric-label { font-size: 10px; color: var(--secondary-text); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Modal Structure */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(243, 239, 249, 0.85); backdrop-filter: blur(25px); overflow-y: auto; padding: 40px 20px; }
+        .modal-content { max-width: 950px; margin: 0 auto; position: relative; animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .close-btn { position: absolute; right: 0; top: -45px; font-size: 35px; color: var(--secondary-text); cursor: pointer; transition: 0.3s; }
+        .close-btn:hover { color: var(--accent-purple); }
+        .modal-body { padding: 45px; display: grid; grid-template-columns: 1fr 1.8fr; gap: 40px; }
+        .modal-left img { width: 100%; height: 320px; object-fit: cover; border-radius: 24px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .modal-title { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; margin: 0 0 10px; color: var(--primary-text); }
+        .modal-party { display: inline-block; background: var(--accent-purple); color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; margin-bottom: 20px; }
+        .modal-bio { font-size: 13px; color: var(--secondary-text); line-height: 1.8; margin-bottom: 25px; max-height: 180px; overflow-y: auto; padding-right: 5px; }
+        .modal-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .m-stat-box { background: rgba(255,255,255,0.7); padding: 18px; border-radius: 18px; border: 1px solid var(--glass-border); }
+        .m-stat-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--secondary-text); margin-bottom: 5px; }
+        .m-stat-val { font-weight: 600; font-size: 13px; color: var(--primary-text); word-break: break-word; }
+
+        footer { text-align: center; padding: 40px; color: var(--secondary-text); font-size: 12px; }
+
+        @media (max-width: 900px) {
+            .hero, .bento-grid, .modal-body { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="logo"><i class="fas fa-landmark"></i> KNOW YOUR MP</a>
+    <ul class="nav-links">
+        <li><a href="index.html" class="active">Lok Sabha & Rajya Sabha</a></li>
+    </ul>
+    <a href="#searchInput" class="cta-btn">Search Archive</a>
+</nav>
+
+<div class="container">
+    
+    <!-- Hero Section -->
+    <header class="hero glass-panel">
+        <div>
+            <div class="hero-tag">+ NATIONAL POLITICAL ARCHIVE (1947 - PRESENT)</div>
+            <h1>Know Your MP<br><span>Beyond the Ballot.</span><br>Total Transparency.</h1>
+            <p>Verified public records, financial assets, criminal histories, and historical political journeys of India's Lok Sabha and Rajya Sabha representatives from 1947 to the present day.</p>
+            <a href="#searchInput" class="cta-btn" style="background: var(--accent-purple); color: #fff; display: inline-block;">Explore Archive <i class="fas fa-search"></i></a>
+        </div>
+        <div>
+            <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80" alt="Parliament India" class="hero-img">
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-box" placeholder="Search across Lok Sabha & Rajya Sabha members (1947 - Present)..." onkeyup="searchMPs()">
+    </div>
+
+    <!-- MP Grid Section -->
+    <div class="section-title">Verified Representatives Archive</div>
+    <div class="mp-grid" id="mpContainer">
+        <p style="text-align: center; width: 100%; color: var(--secondary-text);"><i class="fas fa-spinner fa-spin"></i> Loading Archive Database...</p>
+    </div>
+
+    <!-- Bento Grid -->
+    <div class="bento-grid">
+        <div class="bento-box glass-panel">
+            <div class="section-title" style="margin-bottom: 20px;">Archive Scope</div>
+            <ul class="feature-list">
+                <li><i class="fas fa-history"></i> 1947 to Present Records</li>
+                <li><i class="fas fa-landmark"></i> Lok Sabha & Rajya Sabha</li>
+                <li><i class="fas fa-rupee-sign"></i> Declared Assets</li>
+                <li><i class="fas fa-gavel"></i> Criminal Histories</li>
+            </ul>
+        </div>
+        
+        <div class="bento-box glass-panel">
+            <div class="section-title" style="margin-bottom: 20px;">Database Coverage</div>
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <div class="metric-number">1947+</div>
+                    <div class="metric-label">Historical Data</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-number">LS & RS</div>
+                    <div class="metric-label">Both Houses</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-box glass-panel">
+            <div class="section-title" style="margin-bottom: 20px;">Open Source</div>
+            <p style="font-size: 13px; color: var(--secondary-text); line-height: 1.6;">Comprehensive political archive compiled from official parliamentary records, affidavits, and historical directories.</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal Structure -->
+<div id="portfolioModal" class="modal">
+    <div class="modal-content glass-panel">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div class="modal-body">
+            <div class="modal-left">
+                <img id="modalImg" src="" alt="MP Photo">
+                <div class="modal-party" id="modalParty">PARTY</div>
+                <div class="m-stat-box" style="margin-bottom: 12px;">
+                    <div class="m-stat-label">Constituency / House</div>
+                    <div class="m-stat-val" id="modalConstituency"></div>
+                </div>
+                <div class="m-stat-box">
+                    <div class="m-stat-label">Criminal Cases</div>
+                    <div class="m-stat-val" id="modalCriminal" style="color: #d9534f;">0</div>
+                </div>
+            </div>
+            <div class="modal-right">
+                <h1 class="modal-title" id="modalName">Name</h1>
+                <p class="modal-bio" id="modalBio">Fetching summary...</p>
+                
+                <h4 style="font-family: 'Playfair Display'; margin-bottom: 12px; font-size: 15px;">Political & Financial Summary</h4>
+                <div class="modal-stats">
+                    <div class="m-stat-box"><div class="m-stat-label">Education</div><div class="m-stat-val" id="modalEducation">N/A</div></div>
+                    <div class="m-stat-box"><div class="m-stat-label">Declared Assets</div><div class="m-stat-val" id="modalAssets">N/A</div></div>
+                    <div class="m-stat-box"><div class="m-stat-label">Parliament House</div><div class="m-stat-val" id="modalTerm">Lok Sabha / Rajya Sabha</div></div>
+                    <div class="m-stat-box"><div class="m-stat-label">Political Journey</div><div class="m-stat-val" id="modalJourney">Active</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 KNOW YOUR MP by Nowaj Alam. Built with Lavender Future UI.
+</footer>
+
+<script>
+    let allMPs = [];
+
+    async function fetchMPData() {
+        try {
+            const response = await fetch('mps.json');
+            allMPs = await response.json();
+            displayMPs(allMPs);
+        } catch (error) {
+            document.getElementById('mpContainer').innerHTML = "<p style='text-align:center; color: var(--secondary-text);'>Failed to load mps.json database.</p>";
+        }
+    }
+
+    function displayMPs(mps) {
+        const container = document.getElementById('mpContainer');
+        container.innerHTML = '';
+        if(mps.length === 0) {
+            container.innerHTML = '<p style="text-align:center; color: var(--secondary-text); grid-column: 1/-1;">No records found matching your search.</p>';
+            return;
+        }
+        
+        const displayLimit = Math.min(mps.length, 12); 
+        
+        for(let i=0; i<displayLimit; i++) {
+            let mp = mps[i];
+            const card = document.createElement('div');
+            card.className = 'mp-card glass-panel';
+            card.onclick = () => openModal(mp.id);
+            
+            let displayImage = mp.image ? mp.image : 'https://via.placeholder.com/400x300/e0d8ef/8b68c9?text=Loading';
+            
+            card.innerHTML = `
+                <div class="card-img-wrapper">
+                    <img src="${displayImage}" id="img-grid-${mp.id}" alt="${mp.name}" onerror="this.src='https://via.placeholder.com/400x300/e0d8ef/8b68c9?text=No+Photo'">
+                </div>
+                <span class="mp-party-tag">${mp.party}</span>
+                <h3 class="mp-name">${mp.name}</h3>
+                <p class="mp-desc">${mp.house || 'Parliament'} (${mp.term || '1947+'})</p>
+                <a href="javascript:void(0)" class="explore-link">View Full Profile <i class="fas fa-arrow-up-right-from-square"></i></a>
+            `;
+            container.appendChild(card);
+            
+            if(!mp.image) fetchWikipediaData(mp.name, mp.id, false);
+        }
+        
+        if (mps.length > 12) {
+             const hint = document.createElement('p');
+             hint.style = "text-align: center; grid-column: 1/-1; color: var(--secondary-text); font-size: 13px; margin-top: 15px;";
+             hint.innerText = `Showing 12 of ${mps.length} representatives. Use the search bar above to look up any MP from 1947 to present instantly.`;
+             container.appendChild(hint);
+        }
+    }
+
+    function searchMPs() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const filtered = allMPs.filter(mp => 
+            (mp.name && mp.name.toLowerCase().includes(query)) || 
+            (mp.constituency && mp.constituency.toLowerCase().includes(query)) || 
+            (mp.party && mp.party.toLowerCase().includes(query)) ||
+            (mp.state && mp.state.toLowerCase().includes(query)) ||
+            (mp.house && mp.house.toLowerCase().includes(query))
+        );
+        displayMPs(filtered);
+    }
+
+    async function fetchWikipediaData(mpName, id, isModal) {
+        try {
+            let cleanName = mpName.replace(/\\(.*\\)/g, '').trim();
+            const url = `https://en.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(cleanName)}&prop=extracts|pageimages&exintro&explaintext&pithumbsize=600&format=json&origin=*`;
+            const response = await fetch(url);
+            const data = await response.json();
+            const pageId = Object.keys(data.query.pages)[0];
+            
+            if (pageId !== "-1") {
+                const pageData = data.query.pages[pageId];
+                if (isModal) {
+                    if (pageData.thumbnail) document.getElementById('modalImg').src = pageData.thumbnail.source;
+                    if (pageData.extract) document.getElementById('modalBio').innerText = pageData.extract.substring(0, 500) + '... (Source: Wikipedia)';
+                } else {
+                    if (pageData.thumbnail) {
+                        let imgElement = document.getElementById(`img-grid-${id}`);
+                        if(imgElement) imgElement.src = pageData.thumbnail.source;
+                        const mpIndex = allMPs.findIndex(m => m.id === id);
+                        if(mpIndex !== -1) allMPs[mpIndex].image = pageData.thumbnail.source;
+                    }
+                }
+            }
+        } catch (error) { console.log("Wiki data not found for:", mpName); }
+    }
+
+    function openModal(id) {
+        const mp = allMPs.find(m => m.id === id);
+        if(!mp) return;
+
+        document.getElementById('modalImg').src = mp.image || 'https://via.placeholder.com/600/e0d8ef/8b68c9?text=Loading...';
+        document.getElementById('modalName').innerText = mp.name || 'Unknown';
+        document.getElementById('modalParty').innerText = mp.party || 'N/A';
+        document.getElementById('modalConstituency').innerText = (mp.constituency || mp.state || 'India') + ' | ' + (mp.house || 'Parliament');
+        document.getElementById('modalJourney').innerText = mp.politicalJourney || 'Historical records active.';
+        document.getElementById('modalEducation').innerText = mp.education || 'N/A';
+        document.getElementById('modalTerm').innerText = mp.term || '1947 - Present';
+        document.getElementById('modalAssets').innerText = mp.assets || 'N/A';
+        document.getElementById('modalCriminal').innerText = mp.criminalCases || '0';
+        document.getElementById('modalBio').innerText = mp.detailedBio || 'Fetching background summary from public archives...';
+
+        document.getElementById('portfolioModal').style.display = 'block';
+        document.body.style.overflow = 'hidden'; 
+        
+        if(!mp.detailedBio || !mp.image) fetchWikipediaData(mp.name, mp.id, true);
+    }
+
+    function closeModal() {
+        document.getElementById('portfolioModal').style.display = 'none';
+        document.body.style.overflow = 'auto'; 
+    }
+    window.onclick = function(event) { if (event.target == document.getElementById('portfolioModal')) closeModal(); }
+    window.onload = fetchMPData;
+</script>
+</body>
+</html>
