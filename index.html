@@ -13,8 +13,8 @@
             --secondary-text: #5c4b75;
             --accent-purple: #8b68c9;
             --accent-light: #b39cd9;
-            --glass-bg: rgba(255, 255, 255, 0.55);
-            --glass-border: rgba(255, 255, 255, 0.8);
+            --glass-bg: rgba(255, 255, 255, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.85);
         }
 
         body {
@@ -53,7 +53,7 @@
         .nav-links { display: flex; gap: 35px; list-style: none; margin: 0; padding: 0; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
         .nav-links a { color: var(--secondary-text); text-decoration: none; transition: 0.3s; }
         .nav-links a:hover, .nav-links a.active { color: var(--accent-purple); }
-        .cta-btn { background: rgba(255,255,255,0.7); border: 1px solid var(--glass-border); color: var(--accent-purple); padding: 12px 25px; border-radius: 50px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: 0.3s; backdrop-filter: blur(5px); text-decoration: none; }
+        .cta-btn { background: rgba(255,255,255,0.8); border: 1px solid var(--glass-border); color: var(--accent-purple); padding: 12px 25px; border-radius: 50px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: 0.3s; backdrop-filter: blur(5px); text-decoration: none; }
         .cta-btn:hover { background: var(--accent-purple); color: #fff; box-shadow: 0 0 20px rgba(139,104,201,0.3); }
 
         .container { max-width: 1350px; margin: 0 auto; padding: 0 20px; }
@@ -61,7 +61,7 @@
         /* Hero Section */
         .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; margin-bottom: 50px; padding: 50px; }
         .hero-tag { display: inline-block; color: var(--secondary-text); font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; border-left: 2px solid var(--accent-purple); padding-left: 10px; }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900; line-height: 1.1; margin: 0 0 20px; color: var(--primary-text); text-transform: uppercase; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 50px; font-weight: 900; line-height: 1.1; margin: 0 0 20px; color: var(--primary-text); text-transform: uppercase; }
         .hero h1 span { color: var(--accent-purple); font-style: italic; }
         .hero p { color: var(--secondary-text); font-size: 15px; line-height: 1.7; margin-bottom: 30px; max-width: 90%; }
         .hero-img { width: 100%; height: 420px; object-fit: cover; border-radius: 24px; box-shadow: 0 20px 40px rgba(139, 104, 201, 0.2); }
@@ -79,8 +79,8 @@
         /* MP Grid */
         .mp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
         .mp-card { padding: 20px; text-align: left; display: flex; flex-direction: column; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; }
-        .mp-card:hover { transform: translateY(-8px); background: rgba(255,255,255,0.85); box-shadow: 0 15px 35px rgba(139,104,201,0.15); }
-        .card-img-wrapper { height: 220px; border-radius: 20px; overflow: hidden; margin-bottom: 20px; background: #e0d8ef; }
+        .mp-card:hover { transform: translateY(-8px); background: rgba(255,255,255,0.9); box-shadow: 0 15px 35px rgba(139,104,201,0.15); }
+        .card-img-wrapper { height: 220px; border-radius: 20px; overflow: hidden; margin-bottom: 20px; background: #e0d8ef; display: flex; align-items: center; justify-content: center; color: var(--secondary-text); font-size: 14px; }
         .mp-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .mp-card:hover img { transform: scale(1.05); }
         .mp-party-tag { display: inline-block; background: rgba(139, 104, 201, 0.15); color: var(--accent-purple); padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: 600; text-transform: uppercase; margin-bottom: 10px; }
@@ -96,12 +96,12 @@
         .feature-list i { color: var(--accent-purple); background: rgba(139,104,201,0.1); padding: 8px; border-radius: 50%; }
 
         .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .metric-item { text-align: center; padding: 20px; background: rgba(255,255,255,0.6); border-radius: 20px; }
+        .metric-item { text-align: center; padding: 20px; background: rgba(255,255,255,0.7); border-radius: 20px; }
         .metric-number { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--accent-purple); margin-bottom: 5px; }
         .metric-label { font-size: 10px; color: var(--secondary-text); text-transform: uppercase; letter-spacing: 1px; }
 
         /* Modal Structure */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(243, 239, 249, 0.85); backdrop-filter: blur(25px); overflow-y: auto; padding: 40px 20px; }
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(243, 239, 249, 0.9); backdrop-filter: blur(25px); overflow-y: auto; padding: 40px 20px; }
         .modal-content { max-width: 950px; margin: 0 auto; position: relative; animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         .close-btn { position: absolute; right: 0; top: -45px; font-size: 35px; color: var(--secondary-text); cursor: pointer; transition: 0.3s; }
@@ -112,7 +112,7 @@
         .modal-party { display: inline-block; background: var(--accent-purple); color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; margin-bottom: 20px; }
         .modal-bio { font-size: 13px; color: var(--secondary-text); line-height: 1.8; margin-bottom: 25px; max-height: 180px; overflow-y: auto; padding-right: 5px; }
         .modal-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .m-stat-box { background: rgba(255,255,255,0.7); padding: 18px; border-radius: 18px; border: 1px solid var(--glass-border); }
+        .m-stat-box { background: rgba(255,255,255,0.8); padding: 18px; border-radius: 18px; border: 1px solid var(--glass-border); }
         .m-stat-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--secondary-text); margin-bottom: 5px; }
         .m-stat-val { font-weight: 600; font-size: 13px; color: var(--primary-text); word-break: break-word; }
 
@@ -129,66 +129,67 @@
 <nav class="navbar">
     <a href="index.html" class="logo"><i class="fas fa-landmark"></i> KNOW YOUR MP</a>
     <ul class="nav-links">
-        <li><a href="index.html" class="active">Lok Sabha & Rajya Sabha</a></li>
+        <li><a href="index.html" class="active">Parliament Archive</a></li>
+        <li><a href="rajya-sabha.html">Rajya Sabha</a></li>
     </ul>
-    <a href="#searchInput" class="cta-btn">Search Archive</a>
+    <a href="#searchInput" class="cta-btn">Search Records</a>
 </nav>
 
 <div class="container">
     
-    <!-- Hero Section -->
+    <!-- Hero Section with Indian Political Theme -->
     <header class="hero glass-panel">
         <div>
-            <div class="hero-tag">+ NATIONAL POLITICAL ARCHIVE (1947 - PRESENT)</div>
+            <div class="hero-tag">+ INDIAN PARLIAMENTARY RECORDS (1947 - PRESENT)</div>
             <h1>Know Your MP<br><span>Beyond the Ballot.</span><br>Total Transparency.</h1>
-            <p>Verified public records, financial assets, criminal histories, and historical political journeys of India's Lok Sabha and Rajya Sabha representatives from 1947 to the present day.</p>
-            <a href="#searchInput" class="cta-btn" style="background: var(--accent-purple); color: #fff; display: inline-block;">Explore Archive <i class="fas fa-search"></i></a>
+            <p>Access verified public affidavits, financial assets, criminal disclosures, and political career histories of India's representatives in a modern, transparent archive.</p>
+            <a href="#searchInput" class="cta-btn" style="background: var(--accent-purple); color: #fff; display: inline-block;">Search Representatives <i class="fas fa-search"></i></a>
         </div>
         <div>
-            <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80" alt="Parliament India" class="hero-img">
+            <img src="https://images.unsplash.com/photo-1584288014505-d1667dca19d5?auto=format&fit=crop&w=800&q=80" alt="Indian Parliament Building" class="hero-img">
         </div>
     </header>
 
     <!-- Search Section -->
     <div class="search-container">
-        <input type="text" id="searchInput" class="search-box" placeholder="Search across Lok Sabha & Rajya Sabha members (1947 - Present)..." onkeyup="searchMPs()">
+        <input type="text" id="searchInput" class="search-box" placeholder="Search by politician name, constituency, state, or political party..." onkeyup="searchMPs()">
     </div>
 
     <!-- MP Grid Section -->
-    <div class="section-title">Verified Representatives Archive</div>
+    <div class="section-title">Verified Representatives</div>
     <div class="mp-grid" id="mpContainer">
-        <p style="text-align: center; width: 100%; color: var(--secondary-text);"><i class="fas fa-spinner fa-spin"></i> Loading Archive Database...</p>
+        <p style="text-align: center; width: 100%; color: var(--secondary-text);"><i class="fas fa-spinner fa-spin"></i> Loading Verified Archive Database...</p>
     </div>
 
     <!-- Bento Grid -->
     <div class="bento-grid">
         <div class="bento-box glass-panel">
-            <div class="section-title" style="margin-bottom: 20px;">Archive Scope</div>
+            <div class="section-title" style="margin-bottom: 20px;">Affidavit Metrics</div>
             <ul class="feature-list">
-                <li><i class="fas fa-history"></i> 1947 to Present Records</li>
-                <li><i class="fas fa-landmark"></i> Lok Sabha & Rajya Sabha</li>
-                <li><i class="fas fa-rupee-sign"></i> Declared Assets</li>
-                <li><i class="fas fa-gavel"></i> Criminal Histories</li>
+                <li><i class="fas fa-file-invoice-dollar"></i> Declared Assets & Liabilities</li>
+                <li><i class="fas fa-gavel"></i> Criminal Case Disclosures</li>
+                <li><i class="fas fa-graduation-cap"></i> Educational Background</li>
+                <li><i class="fas fa-history"></i> Parliamentary Terms</li>
             </ul>
         </div>
         
         <div class="bento-box glass-panel">
-            <div class="section-title" style="margin-bottom: 20px;">Database Coverage</div>
+            <div class="section-title" style="margin-bottom: 20px;">Archive Coverage</div>
             <div class="metrics-grid">
                 <div class="metric-item">
-                    <div class="metric-number">1947+</div>
-                    <div class="metric-label">Historical Data</div>
+                    <div class="metric-number">483+</div>
+                    <div class="metric-label">Lok Sabha Records</div>
                 </div>
                 <div class="metric-item">
-                    <div class="metric-number">LS & RS</div>
-                    <div class="metric-label">Both Houses</div>
+                    <div class="metric-number">100%</div>
+                    <div class="metric-label">Verified Data</div>
                 </div>
             </div>
         </div>
 
         <div class="bento-box glass-panel">
-            <div class="section-title" style="margin-bottom: 20px;">Open Source</div>
-            <p style="font-size: 13px; color: var(--secondary-text); line-height: 1.6;">Comprehensive political archive compiled from official parliamentary records, affidavits, and historical directories.</p>
+            <div class="section-title" style="margin-bottom: 20px;">Official Portals</div>
+            <p style="font-size: 13px; color: var(--secondary-text); line-height: 1.6;">Data aggregated from public affidavits and the [Election Commission of India](https://eci.gov.in/) archives for citizen transparency.</p>
         </div>
     </div>
 
@@ -200,10 +201,10 @@
         <span class="close-btn" onclick="closeModal()">&times;</span>
         <div class="modal-body">
             <div class="modal-left">
-                <img id="modalImg" src="" alt="MP Photo">
+                <img id="modalImg" src="" alt="Representative Photo">
                 <div class="modal-party" id="modalParty">PARTY</div>
                 <div class="m-stat-box" style="margin-bottom: 12px;">
-                    <div class="m-stat-label">Constituency / House</div>
+                    <div class="m-stat-label">Constituency & State</div>
                     <div class="m-stat-val" id="modalConstituency"></div>
                 </div>
                 <div class="m-stat-box">
@@ -215,11 +216,11 @@
                 <h1 class="modal-title" id="modalName">Name</h1>
                 <p class="modal-bio" id="modalBio">Fetching summary...</p>
                 
-                <h4 style="font-family: 'Playfair Display'; margin-bottom: 12px; font-size: 15px;">Political & Financial Summary</h4>
+                <h4 style="font-family: 'Playfair Display'; margin-bottom: 12px; font-size: 15px;">Affidavit & Background Summary</h4>
                 <div class="modal-stats">
                     <div class="m-stat-box"><div class="m-stat-label">Education</div><div class="m-stat-val" id="modalEducation">N/A</div></div>
                     <div class="m-stat-box"><div class="m-stat-label">Declared Assets</div><div class="m-stat-val" id="modalAssets">N/A</div></div>
-                    <div class="m-stat-box"><div class="m-stat-label">Parliament House</div><div class="m-stat-val" id="modalTerm">Lok Sabha / Rajya Sabha</div></div>
+                    <div class="m-stat-box"><div class="m-stat-label">Parliament Term</div><div class="m-stat-val" id="modalTerm">18th Lok Sabha</div></div>
                     <div class="m-stat-box"><div class="m-stat-label">Political Journey</div><div class="m-stat-val" id="modalJourney">Active</div></div>
                 </div>
             </div>
@@ -260,15 +261,15 @@
             card.className = 'mp-card glass-panel';
             card.onclick = () => openModal(mp.id);
             
-            let displayImage = mp.image ? mp.image : 'https://via.placeholder.com/400x300/e0d8ef/8b68c9?text=Loading';
+            let displayImage = mp.image ? mp.image : 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80';
             
             card.innerHTML = `
                 <div class="card-img-wrapper">
-                    <img src="${displayImage}" id="img-grid-${mp.id}" alt="${mp.name}" onerror="this.src='https://via.placeholder.com/400x300/e0d8ef/8b68c9?text=No+Photo'">
+                    <img src="${displayImage}" id="img-grid-${mp.id}" alt="${mp.name}" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80'">
                 </div>
                 <span class="mp-party-tag">${mp.party}</span>
                 <h3 class="mp-name">${mp.name}</h3>
-                <p class="mp-desc">${mp.house || 'Parliament'} (${mp.term || '1947+'})</p>
+                <p class="mp-desc">${mp.constituency || 'Constituency'}, ${mp.state || 'India'}</p>
                 <a href="javascript:void(0)" class="explore-link">View Full Profile <i class="fas fa-arrow-up-right-from-square"></i></a>
             `;
             container.appendChild(card);
@@ -279,7 +280,7 @@
         if (mps.length > 12) {
              const hint = document.createElement('p');
              hint.style = "text-align: center; grid-column: 1/-1; color: var(--secondary-text); font-size: 13px; margin-top: 15px;";
-             hint.innerText = `Showing 12 of ${mps.length} representatives. Use the search bar above to look up any MP from 1947 to present instantly.`;
+             hint.innerText = `Showing 12 of ${mps.length} representatives. Use the search bar above to look up any specific MP instantly.`;
              container.appendChild(hint);
         }
     }
@@ -290,8 +291,7 @@
             (mp.name && mp.name.toLowerCase().includes(query)) || 
             (mp.constituency && mp.constituency.toLowerCase().includes(query)) || 
             (mp.party && mp.party.toLowerCase().includes(query)) ||
-            (mp.state && mp.state.toLowerCase().includes(query)) ||
-            (mp.house && mp.house.toLowerCase().includes(query))
+            (mp.state && mp.state.toLowerCase().includes(query))
         );
         displayMPs(filtered);
     }
@@ -325,13 +325,13 @@
         const mp = allMPs.find(m => m.id === id);
         if(!mp) return;
 
-        document.getElementById('modalImg').src = mp.image || 'https://via.placeholder.com/600/e0d8ef/8b68c9?text=Loading...';
+        document.getElementById('modalImg').src = mp.image || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
         document.getElementById('modalName').innerText = mp.name || 'Unknown';
         document.getElementById('modalParty').innerText = mp.party || 'N/A';
-        document.getElementById('modalConstituency').innerText = (mp.constituency || mp.state || 'India') + ' | ' + (mp.house || 'Parliament');
-        document.getElementById('modalJourney').innerText = mp.politicalJourney || 'Historical records active.';
+        document.getElementById('modalConstituency').innerText = (mp.constituency || 'N/A') + ', ' + (mp.state || 'India');
+        document.getElementById('modalJourney').innerText = mp.politicalJourney || 'Records active.';
         document.getElementById('modalEducation').innerText = mp.education || 'N/A';
-        document.getElementById('modalTerm').innerText = mp.term || '1947 - Present';
+        document.getElementById('modalTerm').innerText = mp.term || '18th Lok Sabha';
         document.getElementById('modalAssets').innerText = mp.assets || 'N/A';
         document.getElementById('modalCriminal').innerText = mp.criminalCases || '0';
         document.getElementById('modalBio').innerText = mp.detailedBio || 'Fetching background summary from public archives...';
