@@ -1,0 +1,44 @@
+[
+  {
+    "id": "1",
+    "name": "Shri Jawaharlal Nehru",
+    "constituency": "Phulpur",
+    "state": "Uttar Pradesh",
+    "party": "Congress",
+    "house": "Lok Sabha",
+    "term": "1947–1964",
+    "education": "Trinity College, Cambridge",
+    "criminalCases": "0",
+    "assets": "Historical Archive",
+    "politicalJourney": "First Prime Minister of independent India.",
+    "image": ""
+  },
+  {
+    "id": "2",
+    "name": "Dr. Sarvepalli Radhakrishnan",
+    "constituency": "National / Madras",
+    "state": "Tamil Nadu",
+    "party": "Independent",
+    "house": "Rajya Sabha",
+    "term": "1952–1962",
+    "education": "University of Madras",
+    "criminalCases": "0",
+    "assets": "Historical Archive",
+    "politicalJourney": "First Vice President of India and Chairman of Rajya Sabha.",
+    "image": ""
+  },
+  {
+    "id": "3",
+    "name": "Narendra Modi",
+    "constituency": "Varanasi",
+    "state": "Uttar Pradesh",
+    "party": "BJP",
+    "house": "Lok Sabha",
+    "term": "2014–Present",
+    "education": "Gujarat University",
+    "criminalCases": "0",
+    "assets": "Check Affidavit",
+    "politicalJourney": "Current Prime Minister of India.",
+    "image": ""
+  }
+]
